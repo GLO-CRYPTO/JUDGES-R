@@ -1,0 +1,16 @@
+library(datasets)
+head(USJudgeRatings)
+data<-(USJudgeRatings)
+data
+x<-as.matrix(data[-12])
+y<-data[,12]
+reg1<-lm(y~x)
+reg1<-lm(RTEN~CONT+INTG+ORAL+DMNR+DILG+CFMG+DECI+PREP+FAMI+WRIT+PHYS,
+         data=USJudgeRatings)
+reg1
+summary(reg1)
+anova(reg1)
+coef(reg1)
+confint(reg1)
+resid(reg1)
+hist(residuals(reg1))
